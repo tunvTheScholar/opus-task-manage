@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# TODO APP WITH VITE + TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+<img src="./screenshots/to-do-list.png" alt="Todo List management" width="70" />
+</p>
+<h3 align="center"><b>Opus Todo</b></h3>
+<p align="center"><b>Manage your tasks!</b></p>
 
-Currently, two official plugins are available:
+# How to setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+This is a **Opus Todo** built with Vite, React, and TypeScript, using a mock backend powered by json-server. It allows users to manage their tasks with features like adding, updating, and deleting todos.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- Add, Edit, Delete Todos
+- Mock API with json-server
+- Modern Frontend Stack: Vite, React, TypeScript
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Prerequisites
+
+- Node.js (Recommended version: 16.x or higher)
+- pnpm package manager
+
+# Setup
+
+## Backend
+
+1. Clone the [dummy-json-server repository](https://github.com/tunvTheScholar/dummy-json-server)
+
+```
+git clone https://github.com/tunvTheScholar/dummy-json-server.git
+
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navigate to the cloned directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+cd dummy-json-server
+
+```
+
+3.Install dependencies using pnpm:
+
+```
+pnpm install
+
+```
+
+4. Start the mock server:
+
+```
+pnpm run server
+
+```
+
+The server will start at http://localhost:4000 by default.
+
+Mock Endpoints:
+
+GET /todos - Fetch all todos
+
+POST /todos - Add a new todo
+
+PUT /todos/:id - Update an existing todo
+
+DELETE /todos/:id - Delete a todo
+
+## Frontend
